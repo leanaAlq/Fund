@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  start: 2018-12-17
+  end: 2018-12-17
+  transaction_id: MyString
+
+two:
+  amount: 1
+  start: 2018-12-17
+  end: 2018-12-17
+  transaction_id: MyString

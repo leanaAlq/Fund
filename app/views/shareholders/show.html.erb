@@ -1,0 +1,30 @@
+<h3><%= @shareholder.name %>'s Borrowing Dashboard</h3>
+
+<%= link_to("New Transaction" , new_transaction_path	) %>
+<% @shareholder.accounts.each do |account|%>
+<% end %>
+<% @shareholder.transactions.each do |shareholder_transaction| %>
+<table>
+<tr>
+    <th>Amount</th>
+    <th colspan=<%= shareholder_transaction.duration %>>Plan</th>
+    <th>Approved</th>
+  
+    
+  </tr>
+<tr>
+    <td><%= shareholder_transaction.amount%></td>
+    
+   
+<%shareholder_transaction.duration.times do |i| %>
+<td><%= (shareholder_transaction.created_at + (i+1).month).strftime("%B %e, %Y")%></td>
+<% end %>
+
+    <td><%= shareholder_transaction.is_approved%></td>
+   
+  </tr>
+</table>
+<br>
+<% end %>
+
+

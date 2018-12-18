@@ -1,0 +1,28 @@
+<h2><%= @account.name %> Shareholders</h2>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Deposit</th>
+    <th>Mobile</th>
+    <th>IBAN</th>
+    <th>Gender</th>
+    <th>Modify</th>
+  </tr>
+<% @account.shareholders.each do |shareholder|%>
+<tr>
+
+    <td><%= link_to(shareholder.name , shareholder_path(shareholder)) %></td>
+    <td><%= shareholder.deposit%></td> 
+    <td><%= shareholder.mobile%></td>
+    <td><%= shareholder.iban%></td>
+    <td><%= shareholder.gender%></td>
+
+    <td><%= link_to('<button type="button">Delete</button>'.html_safe, shareholder_path(shareholder), method: :delete) %> <%= link_to('<button type="button">Edit</button>'.html_safe, edit_shareholder_path(shareholder)) %></td>
+   
+  </tr>
+ 
+
+
+<% end %>
+</table>

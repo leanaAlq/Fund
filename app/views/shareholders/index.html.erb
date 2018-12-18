@@ -1,0 +1,6 @@
+<% @shareholders.each do |shareholder|%>
+<h3><%= shareholder.name%></h3>
+<% shareholder.accounts.each do |account| %>
+<h3><%= account.name%></h3>
+<% end %>
+<% end %>

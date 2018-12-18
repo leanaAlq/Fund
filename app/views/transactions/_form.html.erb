@@ -1,0 +1,18 @@
+<%= form_for @transaction do |form|%>
+
+ <div>
+ <%= form.label :amount, "Amount to Borrow"%>
+ <%= form.text_field :amount %>
+ </div>
+ <div>
+ <%= form.label :plan, "The amount you want to return per month" %>
+ <%= form.text_field :plan%>
+ </div>
+ <div>
+ <%= form.label :duration, "Months?" %>
+ <%= form.select :duration, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]%>
+ </div>
+ 
+ 
+  <%= form.submit %>
+  <% end %>

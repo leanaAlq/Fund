@@ -1,0 +1,23 @@
+<h2>All Borrowers </h2>
+<table>
+<tr>
+    <th>Borrower</th>
+    <th>Amount</th>
+    <th>Plan</th>
+    <th>Start Date</th>
+    <th>Approved</th>  
+  </tr>
+<% @transactions.each do |transaction|%>
+<tr>
+    <td><%= link_to(transaction.shareholder.name , shareholder_path(transaction.shareholder)) %></td>
+       <td><%= transaction.amount%></td>
+        <td><%= transaction.plan%></td>
+       <td><%= (transaction.created_at).strftime("%B %e, %Y")%></td>
+    <td><%= transaction.is_approved%> 
+    <%= form_tag "/transactions/#{transaction.id}/approve", method: :put do %>
+        <%= submit_tag "Approve" %>
+    <% end %></td>   
+</tr>
+
+<% end %>
+</table>
