@@ -1,11 +1,12 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+# account_sid = '8rypSAXU2lI9mkLIjVrLUUjgMKNg0oJz'
+# auth_token = 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 module Fund
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

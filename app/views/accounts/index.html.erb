@@ -1,12 +1,22 @@
+<div class="home">
+
 <% @accounts.each do |account|%>
-<h2><%= link_to(account.name , account_path(account)) %></h2>
+<h2><%= link_to("صندوق القرض الحسن " , account_path(account)) %></h2>
+<div class="info">
+<h2> عدد المساهمين : ٣٠</h2>
+<h2>رأس مال الصندوق : ١٠٠،٠٠٠ ريال  </h2>
+<h2> عدد المقترضين : ٦</h2>
+</div>
 
 
 <div class="gender-chart">
-<h3>Percentage of Shareholders by Gender</h3>
-<%= pie_chart(account.shareholders.group(:gender).count) %></div>
+<h3>نسبة المساهمين من الذكور والإناث </h3>
+<%= pie_chart(account.shareholders.group(:gender).count, colors: [ '#86AC41', '#7DA3A1', '#333' ], width: "1000px", align: "left") %></div>
 
 
 
 <% end %>
+
+
+</div>
 

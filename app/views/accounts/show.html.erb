@@ -1,18 +1,22 @@
-<h2><%= @account.name %> Shareholders</h2>
+<div class="home">
+<h2>بيانات المساهمين </h2>
 
-<table>
-<tr>
-    <th>Name</th>
-    <th>Deposit</th>
-    <th>Mobile</th>
-    <th>IBAN</th>
-    <th>Gender</th>
-    <th>Modify</th>
-  </tr>
+<table id="table">
+ <thead>
+        <tr>
+          <th>Name</th>
+          <th>Deposit</th>
+          <th>Mobile</th>
+          <th>IBAN</th>
+          <th>Gender</th>
+          <th>Modify</th>
+        </tr>
+</thead>
+<tbody>
 <% @account.shareholders.each do |shareholder|%>
 <tr>
 
-    <td><%= link_to(shareholder.name , shareholder_path(shareholder)) %></td>
+    <td class="name"><%= link_to(shareholder.name , shareholder_path(shareholder))  %></td>
     <td><%= shareholder.deposit%></td> 
     <td><%= shareholder.mobile%></td>
     <td><%= shareholder.iban%></td>
@@ -24,5 +28,10 @@
  
 
 
+
+
+
 <% end %>
+</tbody>
 </table>
+</div>

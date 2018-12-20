@@ -1,3 +1,5 @@
+require "securerandom"
+
 class ShareholdersController < ApplicationController
   def index
     @shareholders = Shareholder.all
@@ -16,7 +18,20 @@ class ShareholdersController < ApplicationController
 
   def create
     account = Account.first
-    Account.first.shareholders.create shareholder_params
+    shareholder = Shareholder.new shareholder_params
+    shareholder.auth_code = SecureRandom.uuid
+    shareholder.accounts << Account.first
+    shareholder.save
+    account_sid = Rails.application.credentials.dig(:twilio, :account_sid)
+    auth_token = Rails.application.credentials.dig(:twilio, :auth_token)
+    @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    message = @client.messages
+      .create(
+        body: "Good Morning, this is leana saying hi. you are now a user",
+        from: "+13073175798",
+        to: "+966530604422",
+      )
     redirect_to account_path(account)
   end
 

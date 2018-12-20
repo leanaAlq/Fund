@@ -2,8 +2,28 @@
 <html>
   <head>
     <title>Fund</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+<link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:300" rel="stylesheet">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"
+    ></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
@@ -11,6 +31,19 @@
   </head>
 
   <body>
-    <%= yield %>
+  <nav>
+  <%= link_to("Home", accounts_path) %>
+ <%= link_to( " Transactions", transactions_path)%>
+ <%= link_to( "Shareholders", account_path(Account.first))%>
+
+  </nav>
+ 
+  <%= yield %>
+  
+    
+    <footer>
+    <%= link_to("عن الصندوق", plans_path) %>
+    <%= link_to("تريد إنشاء صندوقك الخاص ؟", new_account_path) %>
+    </footer>
   </body>
 </html>

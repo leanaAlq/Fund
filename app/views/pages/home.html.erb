@@ -1,7 +1,18 @@
-<h2>Welcome</h2>
+<img class="decoration-left" src="https://i.pinimg.com/originals/db/f4/9e/dbf49e231d97fd31f431acfa556f86ff.png" alt="">
+<div class="background">
+<h2 class="title">صندوق القرض الحسن</h2>
 
 
  <%= form_tag "/shareholders/authenticate", method: :post do %>
+ <%= label_tag :mobile, "Enter Your mobile Number" %>
 <%= text_field_tag :mobile %>
-        <%= submit_tag "Authinticate" %>
+        <%= submit_tag "Authinticate" ,class: 'authenticate'%>
     <% end %>
+</div>
+<div>
+<img class="decoration-right" src="https://i.pinimg.com/originals/db/f4/9e/dbf49e231d97fd31f431acfa556f86ff.png" alt="">
+</div>
+
+
+
+

@@ -13,6 +13,126 @@
  *= require_tree .
  *= require_self
  */
+body {
+  text-align: center;
+  margin: 0 auto;
+  color: #401d5c;
+  font-family: "Cairo", sans-serif;
+  /* background-color: #86ac41; */
+  /* background-image: url("http://www.nestle-family.com/assets/images/ramdan-new-pattern-2.png?v=123"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+div.info {
+  position: absolute;
+  right: 190px;
+  top: 300px;
+  z-index: 3;
+}
+h2 > a {
+  font-size: 40px;
+}
+div.background {
+  background: #e5e2df;
+  /* padding: 2%; */
+  padding-bottom: 58px;
+  width: 700px;
+  position: absolute;
+  left: 350px;
+  top: 200px;
+  /* height: 100vh; */
+}
+a {
+  color: #401d5c;
+  text-decoration: none;
+}
+nav {
+  background-color: #68a1ae;
+  justify-content: space-around;
+  display: flex;
+
+  /* align-items: stretch; */
+}
+img.decoration-right {
+  width: 315px;
+  height: 490px;
+  position: absolute;
+  right: 20px;
+  top: 130px;
+}
+img.decoration-left {
+  width: 315px;
+  height: 490px;
+  position: absolute;
+  top: 140px;
+  left: 20px;
+}
+footer {
+  position: absolute;
+  left: 650px;
+  top: 770px;
+}
+.approve {
+  display: inline;
+}
+input.approve {
+  background: #d2d58b;
+  padding: 5px;
+  margin-left: 5px;
+}
+label {
+  display: block;
+}
+div > input {
+  padding: 10px 70px;
+}
+form > div {
+  padding: 10px 0;
+}
+form > input {
+  background: #d2d58b;
+  padding: 10px 85px;
+}
+footer {
+  margin: 0 0 0 -120px;
+}
+footer > a {
+  padding: 10px 30px;
+}
+nav > a {
+  color: #401d5c;
+
+  text-decoration: none;
+
+  padding: 10px;
+  font-size: 20px;
+}
+nav > a:hover {
+  background-color: #401d5c7e;
+  color: #e5e2df;
+}
+.title {
+  font-family: "Reem Kufi", sans-serif;
+  color: #401d5c;
+  font-size: 70px;
+}
+#mobile {
+  display: block;
+  margin: 2% auto;
+  /* height: 10%; */
+  padding: 10px 25px;
+  background: whitesmoke;
+}
+.authenticate {
+  background: #d2d58b;
+  padding: 10px 60px;
+}
+.home {
+  padding: 5% 10% 0px 10%;
+  /* padding-bottom: 15%; */
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -21,17 +141,59 @@ table {
 
 td,
 th {
-  border: 1px solid #dddddd;
+  border: 1px solid #68a1ae;
   text-align: left;
   padding: 8px;
 }
 th {
-  background: #dddddd;
+  background: #68a1ae;
 }
 tr:nth-child(even) {
-  border: 1px solid #dddddd;
+  border: 1px solid #68a1ae;
 }
 
 .gender-chart {
   width: 40%;
+}
+@media only screen and (max-width: 760px) {
+  .title {
+    font-size: 35px;
+  }
+  .home {
+    padding: 10%;
+    padding-bottom: 85%;
+  }
+  .name {
+    background: #68a1ae;
+  }
+  .approve {
+    display: inline;
+  }
+  table,
+  tbody,
+  td,
+  tr {
+    display: block;
+  }
+  th {
+    display: none;
+  }
+  td:nth-of-type(1):before {
+    content: " Name: ";
+  }
+  td:nth-of-type(2):before {
+    content: "Deposit: ";
+  }
+  td:nth-of-type(3):before {
+    content: "Mobile: ";
+  }
+  td:nth-of-type(4):before {
+    content: "IBAN: ";
+  }
+  td:nth-of-type(5):before {
+    content: "Gender: ";
+  }
+  td:nth-of-type(6):before {
+    content: "Modify: ";
+  }
 }

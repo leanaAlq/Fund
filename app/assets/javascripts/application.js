@@ -16,3 +16,10 @@
 //= require chartkick
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+  //
+  console.log("jquery connected");
+  window.onload = () => {
+    $("#table").DataTable();
+  };
+});
