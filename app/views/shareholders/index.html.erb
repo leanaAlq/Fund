@@ -1,6 +1,16 @@
+<% if session[:mobile] == nil%>
+<h3>للمصرح لهم فقط</h3>
+<h3>اذا كنت عضوا سجل دخولك <%= link_to("هنا" , root_path	)  %> </h3>
+<% else%>
+<% if @shareholders.find_by(mobile: session[:mobile]).is_admin
+ %>
+
 <% @shareholders.each do |shareholder|%>
 <h3><%= shareholder.name%></h3>
 <% shareholder.accounts.each do |account| %>
 <h3><%= account.name%></h3>
 <% end %>
+<% end %>
+<% end %>
+<h3>للمصرح لهم فقط </h3>
 <% end %>

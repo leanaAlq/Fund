@@ -13,6 +13,9 @@ class TransactionsController < ApplicationController
 
   def create
     Transaction.create(transaction_params)
+
+    send_simple_message
+
     redirect_to transactions_path
   end
 
@@ -24,6 +27,14 @@ class TransactionsController < ApplicationController
     transaction = Transaction.find_by(id: params[:id])
     transaction.update(transaction_params)
     redirect_to transactions_path
+  end
+
+  def send_simple_message
+    RestClient.post "https://api:a8bf693fc2be64b2509d1c2df87585ef-41a2adb4-afebe40a@api.mailgun.net/v3/sandbox9532c00630ea4ee1a9341bedaf73f2e7.mailgun.org/messages",
+                    :from => "صندوق القرض الحسن <postmaster@sandbox9532c00630ea4ee1a9341bedaf73f2e7.mailgun.org>",
+                    :to => "<leana.a.q@gmail.com>",
+                    :subject => "طلب قرض جديد",
+                    :text => " <h1>hello</h1>مرحبا أحمد ، هناك طلب قرض جديد بانتظار موافقتك "
   end
 
   def approve

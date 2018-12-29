@@ -2,21 +2,35 @@
 
 <% @accounts.each do |account|%>
 <h2><%= link_to("صندوق القرض الحسن " , account_path(account)) %></h2>
+
+
+<div class="container">
+
 <div class="info">
-<h2> عدد المساهمين : ٣٠</h2>
-<h2>رأس مال الصندوق : ١٠٠،٠٠٠ ريال  </h2>
-<h2> عدد المقترضين : ٦</h2>
+<h3> عدد المساهمين : <%= account.shareholders.count%></h3>
+<% total = 0 %>
+<% deposits = 0%>
+<% transactions = [] %>
+<% count = 0 %>
+<% account.shareholders.each {|shareholder| deposits += shareholder.deposit}%>
+<% account.shareholders.each do |shareholder| %>
+<%  shareholder.transactions.each do |transaction| %>
+<% if transaction.is_approved && transaction.amount != nil%>
+<% transactions.push( transaction.amount)%>
+<% count +=1 %>
+<% end %>
+<% end %>
+<% end %>
+<h3>رأس مال الصندوق : <%= deposits %> ريال  </h3>
+<h3>إجمالي القروض الحالية :  29,105.25   ريال  </h3>
+<h3> عدد المقترضين : <%= count %></h3>
 </div>
 
 
-<div class="gender-chart">
-<h3>نسبة المساهمين من الذكور والإناث </h3>
-<%= pie_chart(account.shareholders.group(:gender).count, colors: [ '#86AC41', '#7DA3A1', '#333' ], width: "1000px", align: "left") %></div>
-
-
-
+<%= pie_chart(account.shareholders.group(:gender).count, colors: [ '#86AC41', '#7DA3A1', '#333' ], title: " نسبة المساهمين من الذكور والإناث", height: '400px', width: '400px', library: {backgroundColor: "#e5e2df", fontSize: 15, fontFamily: "'Cairo', sans-serif"}) %></div>
 <% end %>
 
 
 </div>
+
 

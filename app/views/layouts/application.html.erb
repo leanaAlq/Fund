@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html dir="rtl" lang="ar">
+
+  <head >
     <title>Fund</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= csrf_meta_tags %>
@@ -32,9 +34,9 @@
 
   <body>
   <nav>
-  <%= link_to("Home", accounts_path) %>
- <%= link_to( " Transactions", transactions_path)%>
- <%= link_to( "Shareholders", account_path(Account.first))%>
+  <%= link_to("الرئيسية", accounts_path) %>
+ <%= link_to( " المقترضون", transactions_path)%>
+ <%= link_to( "المساهمون", account_path(Account.first))%>
 
   </nav>
  
@@ -42,8 +44,7 @@
   
     
     <footer>
-    <%= link_to("عن الصندوق", plans_path) %>
-    <%= link_to("تريد إنشاء صندوقك الخاص ؟", new_account_path) %>
+    <p> صندوق القرض الحسن  2019 &copy; </p>
     </footer>
   </body>
 </html>

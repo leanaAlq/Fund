@@ -1,6 +1,8 @@
 require "securerandom"
 
 class ShareholdersController < ApplicationController
+  # before_action :authenticate, only: [:index, :show, :create, :edit]
+
   def index
     @shareholders = Shareholder.all
   end
@@ -42,10 +44,10 @@ class ShareholdersController < ApplicationController
   def update
   end
 
-  def authenticate
-    shareholder = Shareholder.find_by(mobile: params[:mobile])
-    shareholder.nil? ? (redirect_to request.referrer) : (redirect_to accounts_path)
-  end
+  # def authenticate
+  #   shareholder = Shareholder.find_by(mobile: params[:mobile])
+  #   shareholder.nil? ? (redirect_to request.referrer) : (redirect_to accounts_path)
+  # end
 
   def destroy
     account = Account.first

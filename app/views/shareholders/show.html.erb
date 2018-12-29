@@ -1,5 +1,11 @@
 <div class="home">
-<h3><%= @shareholder.name %>'s Borrowing Dashboard</h3>
+<% if session[:mobile] == nil%>
+<h3>للمصرح لهم فقط</h3>
+<h3><%= link_to("هنا" , root_path	)  %>اذا كنت عضوا سجل دخولك </h3>
+<% else%>
+<% if shareholders.find_by(mobile: session[:mobile]).is_admin
+ %>
+<h3> سجل اقتراض <%= @shareholder.name %></h3>
 
 <%= link_to("New Transaction" , new_transaction_path	) %>
 <% @shareholder.accounts.each do |account|%>
@@ -9,7 +15,7 @@
 <thead>
 <tr>
     <th>Amount</th>
-    <th colspan=<%= shareholder_transaction.duration %>>Plan</th>
+   
     <th>Approved</th>
   
     
@@ -19,10 +25,7 @@
 <tr>
     <td><%= shareholder_transaction.amount%></td>
     
-   
-<%shareholder_transaction.duration.times do |i| %>
-<td><%= (shareholder_transaction.created_at + (i+1).month).strftime("%B %e, %Y")%></td>
-<% end %>
+
 
     <td><%= shareholder_transaction.is_approved%></td>
    
@@ -30,7 +33,8 @@
 </table>
 <br>
 <% end %>
-
+<% end %>
+<% end %>
 </div>
 
 

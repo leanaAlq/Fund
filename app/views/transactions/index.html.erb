@@ -1,12 +1,18 @@
 <div class="home">
+<% if session[:mobile] == nil%>
+<h3>للمصرح لهم فقط</h3>
+<h3>اذا كنت عضوا سجل دخولك <%= link_to("هنا" , root_path	)  %></h3>
+<% else%>
+<% if shareholders.find_by(mobile: session[:mobile]).is_admin
+ %>
 <h2>All Borrowers </h2>
-<table>
+<table >
 <tr>
-    <th>Borrower</th>
-    <th>Amount</th>
-    <th>Plan</th>
-    <th>Start Date</th>
-    <th>Approved</th>  
+    <th>المقترض</th>
+    <th>المبلغ</th>
+    <th>القسط</th>
+    <th>تاريخ البدء</th>
+    <th>حالة الطلب</th>  
   </tr>
 <% @transactions.each do |transaction|%>
 <tr>
@@ -22,5 +28,6 @@
 
 <% end %>
 </table>
-
+<% end %>
+<% end %>
 </div>

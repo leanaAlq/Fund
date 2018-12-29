@@ -1,15 +1,21 @@
 <div class="home">
+<% if session[:mobile] == nil%>
+<h3>للمصرح لهم فقط</h3>
+<h3>اذا كنت عضوا سجل دخولك <%= link_to("هنا" , root_path	)  %> </h3>
+<% else%>
+<% if shareholders.find_by(mobile: session[:mobile]).is_admin
+ %>
 <h2>بيانات المساهمين </h2>
 
 <table id="table">
  <thead>
         <tr>
-          <th>Name</th>
-          <th>Deposit</th>
-          <th>Mobile</th>
-          <th>IBAN</th>
-          <th>Gender</th>
-          <th>Modify</th>
+          <th>الاسم</th>
+          <th>المساهمة</th>
+          <th>الجوال</th>
+          <th>الآيبان</th>
+          <th>الجنس</th>
+          <th>تحديث</th>
         </tr>
 </thead>
 <tbody>
@@ -21,7 +27,6 @@
     <td><%= shareholder.mobile%></td>
     <td><%= shareholder.iban%></td>
     <td><%= shareholder.gender%></td>
-
     <td><%= link_to('<button type="button">Delete</button>'.html_safe, shareholder_path(shareholder), method: :delete) %> <%= link_to('<button type="button">Edit</button>'.html_safe, edit_shareholder_path(shareholder)) %></td>
    
   </tr>
@@ -34,4 +39,8 @@
 <% end %>
 </tbody>
 </table>
+ <% end %>
+ <h3>للمصرح لهم فقط </h3>
+ <% end %>
 </div>
+
